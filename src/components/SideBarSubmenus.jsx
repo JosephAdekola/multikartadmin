@@ -9,14 +9,14 @@ export default function SideBarSubmenus({condi1, condi2, theArray = []}) {
     return (
         <div className={`${condi1 ? 'hidden' :
             condi2 ? 'hidden' : ''}
-        capitalize text-sm text-gray-300
+        capitalize text-sm 
         pl-20`}>
             <ul className=' flex flex-col gap-3 '>
                 {
                     theArray.map((sub, index)=>{
                         return(
                             <li key={index}
-                                className=' cursor-pointer '
+                                className=' cursor-pointer text-gray-300 '
                                 onClick={()=>{navigate(sub.menu.replace(/\s/g, '')); setSideBarState(false) }}>
                                 {sub.menu}
                             </li>

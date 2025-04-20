@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function HeadAndDesc({head, desc}) {
+export default function HeadAndDesc({head, desc = "multikart admin panel"}) {
   return (
     <div>
             <h3 className=' uppercase font-bold text-2xl '>{head}</h3>

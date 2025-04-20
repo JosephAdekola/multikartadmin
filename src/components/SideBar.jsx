@@ -33,17 +33,12 @@ export default function SideBar() {
 
     const orderSubMenu = [
         {id: 1, menu:"view orders"},
-        {id: 1, menu:"create orders"},
-        {id: 2, menu:"edit orders"},
-        {id: 3, menu:"delete orders"},
-        {id: 4, menu:"order status"}
+        {id: 1, menu:"order details"}
     ]
 
     const usersSubMenu = [
         {id: 1, menu:"all users"},
-        {id: 1, menu:"change user role"},
-        {id: 2, menu:"add users"},
-        {id: 3, menu:"delete users"}
+        {id: 2, menu:"add users"}
     ]
 
     return (
@@ -53,7 +48,7 @@ export default function SideBar() {
                     className=' w-[45%] h-[90%] object-contain mx-auto '
                     onClick={()=>{setIsActive('dashboard'); navigate('/')}} />
                 <div className=' my-auto mx-auto text-4xl md:hidden '>
-                <i className=' pi pi-times text-white '
+                <i className=' pi pi-times cursor-pointer text-white '
                     onClick={()=>setSideBar(false)}></i>
                 </div>
             </div>

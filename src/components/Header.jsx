@@ -13,7 +13,7 @@ export default function Header({ sideDisplay, status }) {
   return (
     <div className=' w-full h-[15vh] bg-white flex justify-between px-5 '>
       <div className=' flex justify-between sm:w-[60%] '>
-        <i className=' pi pi-align-left my-auto text-2xl text-[#ec8951] '
+        <i className=' pi pi-align-left my-auto text-2xl text-[#ec8951] cursor-pointer '
           onClick={() => sideDisplay(!status)}></i>
         <div className="relative w-fit my-auto hidden sm:block">
           <input
