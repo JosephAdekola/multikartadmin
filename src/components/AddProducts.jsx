@@ -1,6 +1,7 @@
 import React from 'react'
 import HeadAndDesc from './HeadAndDesc'
 import placeHolderImage from "../../public/serverImages/beltedDresses/belted1.jpg"
+import ButtonComp from './ButtonComp'
 
 export default function AddProducts() {
 
@@ -74,12 +75,8 @@ export default function AddProducts() {
                         <div className=' flex '>
                             <div className=' md:w-[30%] '></div>
                             <div className=' w-full md:w-[70%] px-2 flex gap-3 '>
-                                <button className=' bg-[#ec8951] text-white font-bold px-7 py-3 uppercase '>
-                                    add
-                                </button>
-                                <button className=' bg-gray-200 text-black font-bold px-7 py-3 uppercase '>
-                                    discard
-                                </button>
+                                <ButtonComp text={"add"} bground={"bg-[#ec8951]"} textFill={"text-white"} />
+                                <ButtonComp text={"discard"} bground={"bg-gray-200"} textFill={"text-black"} />                                
                             </div>
                         </div>
                     </form>

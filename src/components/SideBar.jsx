@@ -38,7 +38,7 @@ export default function SideBar() {
 
     const usersSubMenu = [
         {id: 1, menu:"all users"},
-        {id: 2, menu:"add users"}
+        {id: 2, menu:"add user"}
     ]
 
     return (
