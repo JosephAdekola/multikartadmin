@@ -16,7 +16,7 @@ export default function AddUser() {
                 textField3={"email:"} display31='block' display32='flex'
                 textField4={"password:"} display41='block' display42='flex'
                 textField5={"confirm password:"} display51='block' display52='flex'
-                button1={ <ButtonComp text={"add"} bground={"bg-[#ec8951]"} textFill={"text-white"} /> } />
+                button1={ <ButtonComp text={"save"} bground={"bg-[#ec8951]"} textFill={"text-white"} /> } />
         </div>
     </div>
   )
