@@ -9,11 +9,12 @@ import ViewOrders from '../components/ViewOrders'
 import AllUsers from '../components/AllUsers'
 import AddUser from '../components/AddUser'
 import OrderDetails from '../components/OrderDetails'
+import ErrorPage from '../components/ErrorPage'
 
 function MainRouter() {
     const myRouter = createBrowserRouter(
         createRoutesFromElements(
-            <Route path='/' element={<MainLayout />}>
+            <Route path='/' element={<MainLayout />} errorElement={<ErrorPage />}>
                 <Route index element={<Dashboard />} />
                 <Route path='dashboard' element={<Dashboard />} />
                 <Route path='addproduct' element={<AddProducts />} />
