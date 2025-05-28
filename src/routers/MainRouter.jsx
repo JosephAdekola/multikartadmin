@@ -18,7 +18,7 @@ function MainRouter() {
                 <Route index element={<Dashboard />} />
                 <Route path='dashboard' element={<Dashboard />} />
                 <Route path='addproduct' element={<AddProducts />} />
-                <Route path='editproduct' element={<EditProduct />} />
+                <Route path='editproduct/:code' element={<EditProduct />} />
                 <Route path='allproduct' element={<AllProduct />} />
                 <Route path='vieworders' element={<ViewOrders />} />
                 <Route path='orderdetails' element={<OrderDetails />} />

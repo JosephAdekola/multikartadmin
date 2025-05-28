@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import headshot from '../assets/headshot.jpg'
+import ButtonComp from './ButtonComp'
 
 export default function Header({ sideDisplay, status }) {
 
   const headerIcons = [
     { id: 1, name: "maximise", icon: "pi pi-arrow-up-right-and-arrow-down-left-from-center", unreads: false },
-    { id: 1, name: "language", icon: "pi pi-language", unreads: false },
-    { id: 1, name: "notifications", icon: "pi pi-bell", unreads: false },
-    { id: 1, name: "inbox", icon: "pi pi-envelope", unreads: false }
+    { id: 2, name: "language", icon: "pi pi-language", unreads: false },
+    { id: 3, name: "notifications", icon: "pi pi-bell", unreads: false },
+    { id: 4, name: "inbox", icon: "pi pi-envelope", unreads: false }
   ]
+
+  const [userOptions, setUserOptions] = useState(false)
 
   return (
     <div className=' w-full h-[15vh] bg-white flex justify-between px-5 '>
@@ -38,9 +41,15 @@ export default function Header({ sideDisplay, status }) {
               )
             })
           }
-          <div className=' bg-amber-300 '>
-            <img src={headshot} alt=""
-              className=' h-[50px] w-[50px] object-cover ' />
+          <div className=' rounded-2xl overflow-hidden '>
+            <img src={headshot} alt="profile picture"
+              className=' h-[50px] w-[50px] object-cover cursor-pointer '
+              onClick={()=>setUserOptions(!userOptions)} />
+              <div className={`absolute right-0 pt-[20px] w-[100px] overflow-hidden`}>
+                <ul className={`${!userOptions && ("translate-x-full")} transition-all duration-200 ease-in-out`}>
+                  <ButtonComp text={"logout"} bground={"bg-[#ec8951]"} textFill={"text-white"} performFunction={e=>{localStorage.clear("user", {}); window.location.reload()}} />
+                </ul>
+              </div>
           </div>
         </div>
       </div>
