@@ -13,9 +13,11 @@ export default function AddUser() {
   const [password, setpassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [phone, setPhone] = useState('')
+  const [role, setRole] = useState('')
   const [country, setCountry] = useState('')
   const [address, setAddress] = useState('')
   const [city, setCity] = useState('')
+  const [state, setState] = useState('')
   const [postalCode, setPostalCode] = useState('')
 
   const [displayOTP, setDisplayOTP] = useState(false)
@@ -24,7 +26,7 @@ export default function AddUser() {
 
   const addUserHandler = async (e) => {
     e.preventDefault()
-    if (!firstName || !lastName || !email || !password || !phone || !country || !address || !postalCode) {
+    if (!firstName || !lastName || !email || !password || !phone || !country || !address || !state || !postalCode) {
       alert("all fields are required")
       return;
     }
@@ -39,9 +41,11 @@ export default function AddUser() {
       email: email.toLocaleLowerCase().trim(),
       password: password,
       phone: phone,
+      role: role,
       country: country,
       address: address,
       city: city,
+      state: state,
       postalCode: postalCode
     }
 
@@ -154,9 +158,12 @@ export default function AddUser() {
         <FormComp textField={"password:"} stringSetter={setpassword} textDisplay='block' textDisplaymd='flex' textInputType={"password"} />
         <FormComp textField={"confirm password:"} stringSetter={setConfirmPassword} textDisplay='block' textDisplaymd='flex' textInputType={"password"} />
         <FormComp textField={"phone:"} stringSetter={setPhone} textDisplay='block' textDisplaymd='flex' />
-        <FormComp textField={"country:"} stringSetter={setCountry} textDisplay='block' textDisplaymd='flex' />
+        {<FormComp selectField={"asign role"} selectDisplay='block' selectDisplaymd='flex' stringSetter={setRole} 
+                                selectField1opt1={"admin"} selectField1opt2={"superAdmin"}/>}
         <FormComp textField={"address:"} stringSetter={setAddress} textDisplay='block' textDisplaymd='flex' />
         <FormComp textField={"city:"} stringSetter={setCity} textDisplay='block' textDisplaymd='flex' />
+        <FormComp textField={"state/Region:"} stringSetter={setState} textDisplay='block' textDisplaymd='flex' />
+        <FormComp textField={"country:"} stringSetter={setCountry} textDisplay='block' textDisplaymd='flex' />
         <FormComp textField={"postal code:"} stringSetter={setPostalCode} textDisplay='block' textDisplaymd='flex' />
 
         <FormComp button1={<ButtonComp text={"save"} bground={"bg-[#ec8951]"} textFill={"text-white"} performFunction={addUserHandler} />} />

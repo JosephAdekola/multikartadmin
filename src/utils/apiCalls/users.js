@@ -1,6 +1,7 @@
 import axios from "axios"
 
 const BaseURL = `${import.meta.env.VITE_APIBASEURL}/api/v1/users`
+// const BaseURL = `http://localhost:7077/api/v1/users`
 
 
 export const addUser = (payload)=>{

@@ -3,7 +3,7 @@ import ButtonComp from './ButtonComp'
 
 function Table({ head1, head2, head3, head4, head5, head6, head7, bodyArray = [], buttonPart }) {
     return (
-        <div className=' bg-white p-5 w-[100%] overflow-hidden my-5 '>
+        <div className=' bg-white p-5 w-[100%] overflow-hidden my-5 mx-auto '>
 
             <div className=' md:flex justify-between mb-5 '>
                 <div className="relative w-fit my-5 " >

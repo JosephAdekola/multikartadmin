@@ -27,7 +27,6 @@ export default function SideBar() {
 
     const productsSubMenu = [
         {id: 1, menu:"add product"},
-        {id: 2, menu:"edit product"},
         {id: 4, menu:"all product"}
     ]
 
