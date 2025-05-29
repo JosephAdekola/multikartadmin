@@ -59,7 +59,7 @@ export default function AllUsers() {
 
 
     return (
-        <div>
+        <div className=' mx-auto '>
             <div>
                 <HeadAndDesc head={"user list"} />
             </div>
