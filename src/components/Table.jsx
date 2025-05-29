@@ -3,7 +3,7 @@ import ButtonComp from './ButtonComp'
 
 function Table({ head1, head2, head3, head4, head5, head6, head7, bodyArray = [], buttonPart }) {
     return (
-        <div className=' bg-white p-5 w-[100%] overflow-hidden my-5 mx-auto '>
+        <div className=' bg-white p-5 w-[100%] overflow-hidden my-5 '>
 
             <div className=' md:flex justify-between mb-5 '>
                 <div className="relative w-fit my-5 " >
@@ -20,8 +20,8 @@ function Table({ head1, head2, head3, head4, head5, head6, head7, bodyArray = []
                 </div>
             </div>
 
-            <div className=' overflow-x-scroll custom-scrollbar '>
-                <table>
+            <div className=' overflow-x-scroll custom-scrollbar w-full '>
+                <table className=' mx-auto '>
                     <th className=' flex md:gap-5 [&>*]:min-w-[150px] md:[&>*]:min-w-[200px]
                             overflow-x-scroll custom-scrollbar bg-gray-200 [&>*]:my-auto
                             py-3 capitalize text-gray-700 border-b border-gray-300 '>
