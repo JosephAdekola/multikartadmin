@@ -59,7 +59,7 @@ export default function AllUsers() {
 
 
     return (
-        <div className=' mx-auto '>
+        <div>
             <div>
                 <HeadAndDesc head={"user list"} />
             </div>
@@ -76,12 +76,12 @@ export default function AllUsers() {
                     </div>
 
                     <div className=' my-auto '>
-                        <ButtonComp text={"create usergf"} bground={"bg-[#ec8951]"} textFill={"text-white"} performFunction={()=>navigate("/adduser")} />
+                        <ButtonComp text={"create user"} bground={"bg-[#ec8951]"} textFill={"text-white"} performFunction={()=>navigate("/adduser")} />
                     </div>
                 </div>
 
                 <div className=' overflow-x-scroll custom-scrollbar '>
-                    <table>
+                    <table className=' mx-auto '>
                         <th className=' flex md:gap-5 [&>*]:min-w-[150px] md:[&>*]:min-w-[200px]
                 overflow-x-scroll custom-scrollbar bg-gray-200 [&>*]:my-auto
                 py-3 capitalize text-gray-700 border-b border-gray-300 '>
@@ -122,16 +122,5 @@ export default function AllUsers() {
                 </div>
             </div>
         </div>
-        // <div>
-        //     <div>
-        //         <HeadAndDesc head={"user list"} />
-        //     </div>
-
-        //     <div>
-        //         <Table head2={<ButtonComp text={"delete"} bground={"bg-[#ec8951]"} textFill={"text-white"} />} 
-        //             head1={"avatar"} head3={"first name"} head4={"last name"} buttonPart={<ButtonComp text={"create user"} bground={"bg-[#ec8951]"} textFill={"text-white"} />}
-        //             head5={"email"} head6={"last login"} head7={"role"} bodyArray={alluser} />
-        //     </div>
-        // </div>
     )
 }
