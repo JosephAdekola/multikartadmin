@@ -47,19 +47,19 @@ export default function FormComp({
         <form action="" className=' flex flex-col gap-5 '>
 
             <div className={` ${textDisplay} md:${textDisplaymd} justify-between md:px-5 `}>
-                <label htmlFor="" className=' capitalize font-bold block w-[30%] text-right pr-3 '>{textField}</label>
+                <label htmlFor="" className=' capitalize font-bold block w-[30%] md:text-right pr-3 '>{textField}</label>
                 <input type={textInputType} className={`border border-gray-300 w-full md:w-[70%] h-10 px-3 `}
                     onChange={e => stringGrabber(e)} value={textInputValue} />
             </div>
 
             <div className={` ${numberDisplay} md:${numberDisplaymd} justify-between md:px-5 `}>
-                <label htmlFor="" className=' capitalize font-bold block w-[30%] text-right pr-3 '>{numberField}</label>
+                <label htmlFor="" className=' capitalize font-bold block w-[30%] md:text-right pr-3 '>{numberField}</label>
                 <input type="number" className={`border border-gray-300 w-full md:w-[70%] h-10 px-3 `}
                     onChange={e => integerGrabber(e)} value={numberInputValue} />
             </div>
 
             <div className={` ${selectDisplay} md:${selectDisplaymd} justify-between md:px-5 `}>
-                <label htmlFor="" className=' capitalize font-bold block w-[30%] text-right pr-3 '>{selectField}</label>
+                <label htmlFor="" className=' capitalize font-bold block w-[30%] md:text-right pr-3 '>{selectField}</label>
                 <select name="" className={`border border-gray-300 w-full md:w-[70%] h-10 px-3 `}
                     onChange={e => stringGrabber(e)} value={selectInputValue} >
                     <option value="Choose"></option>
@@ -71,13 +71,13 @@ export default function FormComp({
             </div>
 
             <div className={` ${textAreaDisplay} md:${textAreaDisplaymd} justify-between md:px-5 `}>
-                <label htmlFor="" className=' capitalize font-bold block w-[30%] text-right pr-3 '>{textAreaField}</label>
+                <label htmlFor="" className=' capitalize font-bold block w-[30%] md:text-right pr-3 '>{textAreaField}</label>
                 <textarea className={`border border-gray-300 w-full md:w-[70%]  h-[100px] px-3 `}
                     onChange={e => stringGrabber(e)} value={textAreaInputValue} />
             </div>
 
             <div className={`flex justify-between gap-2 ${checkBoxDisplay} md:${checkBoxDisplaymd} mb-5 py-5 `}>
-                <label className="capitalize font-bold block w-[30%] text-right pr-3">{checkboxLabel}</label>
+                <label className="capitalize font-bold block w-[30%] md:text-right pr-3">{checkboxLabel}</label>
 
                 <div className={` w-full md:w-[70%] h-10 px-3 `}>
                     <div>
