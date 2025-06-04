@@ -14,6 +14,8 @@ export default function Dashboard() {
 
     const [salesData, setSalesData] = useState([])
     const [dateRange, setDateRange] = useState(7)
+    const [decButton, setDecButton] = useState("bg-[#ec8951]")
+    const [incButton, setIncButton] = useState("bg-[#ec8951]")
 
 
     const getSalesMetrics = async () => {
@@ -71,11 +73,18 @@ export default function Dashboard() {
                     <label htmlFor="" className=' flex flex-col '>
                         <p className=' capitalize text-center '>adjust date range</p>
                         <div className=' flex justify-center gap-1 '>
-                            <input type="number"
-                                value={dateRange}
-                                onChange={e => setDateRange(e.target.value)}
-                                className=' border px-1 w-[50px] ' />
+                            <button
+                                className={`pi pi-minus border px-2 rounded cursor-pointer ${decButton} hover:bg-gray-300`}
+                                onClick={()=>dateRange > 1 && (setDateRange(prev=>prev-1))}
+                                onMouseDown={()=>setDecButton("bg-gray-300")}
+                                onMouseUp={()=>setDecButton("bg-[#ec8951]")}></button>
+                            <p>{dateRange}</p>
                             <p>DAYS</p>
+                            <button
+                                className={`pi pi-plus border px-2 rounded cursor-pointer ${incButton} hover:bg-gray-300`} 
+                                onClick={()=>setDateRange(prev=>prev+1)}
+                                onMouseDown={()=>setIncButton("bg-gray-300")}
+                                onMouseUp={()=>setIncButton("bg-[#ec8951]")}></button>
                         </div>
                     </label>
                 </div>

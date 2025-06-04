@@ -15,6 +15,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loadingAuth, setLoadingAuth] = useState(true);
+  const [pwToggle, setPwToggle] = useState(false)
 
   const adminLoginHandler = async (e) => {
     e.preventDefault();
@@ -29,6 +30,8 @@ function App() {
       const res = await signAdminIn(payload);
 
       if (res) {
+        console.log(res);
+        
         setGetUser({
           token: res.data.token,
           user: res.data.user,
@@ -114,12 +117,17 @@ function App() {
           </label>
           <label>
             <p>Password:</p>
-            <input
-              type="password"
+            <div className=' relative '>
+              <input
+              type={pwToggle ? "text":"password"}
               className='border w-full px-3'
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
+              <i className={`${pwToggle ? "pi pi-eye-slash" : "pi pi-eye"}
+                    absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer`}
+                onClick={()=>setPwToggle(!pwToggle)} ></i>
+            </div>
           </label>
           <ButtonComp
             text={loading ? "Logging in..." : "Login"}

@@ -21,7 +21,7 @@ function MainRouter() {
                 <Route path='editproduct/:code' element={<EditProduct />} />
                 <Route path='allproduct' element={<AllProduct />} />
                 <Route path='vieworders' element={<ViewOrders />} />
-                <Route path='orderdetails' element={<OrderDetails />} />
+                <Route path='orderdetails/:id' element={<OrderDetails />} />
                 <Route path='allusers' element={<AllUsers />} />
                 <Route path='adduser' element={<AddUser />} />
             </Route>

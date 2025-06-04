@@ -7,24 +7,45 @@ import { useNavigate } from 'react-router-dom'
 
 export default function AllUsers() {
 
-    const [alluser, setAllUser] = useState([])
+    const [userArray, setUserArray] = useState([])
     const [checkedUser, setCheckedUser] = useState([])
     const navigate = useNavigate()
 
-    const userCheckBoxHandler = (e)=>{
-        const {checked, value} = e.target
-        setCheckedUser(prev=>[...prev, value])
-        
+    //pagenation data
+    const rowPerPage = 5
+    const [currentPage, setCurrentPage] = useState(1)
+    const totalPages = Math.ceil(userArray.length / rowPerPage)
+    const startIndex = (currentPage - 1) * rowPerPage
+    const pagenatedRow = userArray.slice(startIndex, startIndex + rowPerPage)
+
+    const handlePrev = () => {
+        if (currentPage > 1) {
+            setCurrentPage(prev => prev - 1)
+        }
     }
-    
+
+    const handleNext = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(prev => prev + 1)
+        }
+    }
+    //pagenation data ends here
+
+
+    const userCheckBoxHandler = (e) => {
+        const { checked, value } = e.target
+        setCheckedUser(prev => [...prev, value])
+
+    }
+
     const usersModifier = async () => {
         if (!checkedUser || checkedUser.length === 0) {
             alert("No users selected for deletion.");
             return;
         }
-    
+
         const payload = { items: checkedUser };
-    
+
         try {
             const res = await deleteUser(payload);
             if (res && res.data) {
@@ -39,15 +60,15 @@ export default function AllUsers() {
             }
         }
     };
-    
-    
+
+
 
     useEffect(() => {
         const fetchAllUser = async () => {
             try {
                 const res = await allUser()
                 if (res) {
-                    setAllUser(res.data)
+                    setUserArray(res.data)
                 }
             } catch (error) {
                 console.log(error);
@@ -76,7 +97,7 @@ export default function AllUsers() {
                     </div>
 
                     <div className=' my-auto '>
-                        <ButtonComp text={"create user"} bground={"bg-[#ec8951]"} textFill={"text-white"} performFunction={()=>navigate("/adduser")} />
+                        <ButtonComp text={"create user"} bground={"bg-[#ec8951]"} textFill={"text-white"} performFunction={() => navigate("/adduser")} />
                     </div>
                 </div>
 
@@ -94,14 +115,14 @@ export default function AllUsers() {
                             <td>role</td>
                         </th>
                         {
-                            alluser.map((row, index) => {
+                            pagenatedRow.map((row, index) => {
                                 return (
                                     <tr key={index}
                                         className=' flex md:gap-5 [&>*]:min-w-[150px] md:[&>*]:min-w-[200px]
                                                 overflow-x-scroll custom-scrollbar bg-white [&>*]:text-center
                                                 py-3 capitalize text-gray-700 border-b border-gray-300 [&>*]:my-auto '>
                                         <td>
-                                            <input type="checkbox" value={row.email} onChange={e=>userCheckBoxHandler(e)} />
+                                            <input type="checkbox" value={row.email} onChange={e => userCheckBoxHandler(e)} />
                                         </td>
                                         <td>
                                             <img src={headshot} alt={row.firstName}
@@ -119,6 +140,29 @@ export default function AllUsers() {
                             })
                         }
                     </table>
+                    <div className="flex justify-end items-center gap-2 mt-4">
+                        <button
+                            onClick={handlePrev}
+                            disabled={currentPage === 1}
+                            className={`px-3 py-1 rounded ${currentPage === 1
+                                    ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                    : 'bg-[#ec8951] text-white hover:bg-gray-300'}
+                                    cursor-pointer`}>
+                            Prev
+                        </button>
+                        <span className="text-gray-700">
+                            Page {currentPage} of {totalPages}
+                        </span>
+                        <button
+                            onClick={handleNext}
+                            disabled={currentPage === totalPages}
+                            className={`px-3 py-1 rounded ${currentPage === totalPages
+                                    ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                    : 'bg-[#ec8951] text-white hover:bg-gray-300'}
+                                    cursor-pointer`}>
+                            Next
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
